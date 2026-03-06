@@ -56,16 +56,6 @@ npx serve site
 python -m http.server -d site 8080
 # or just open site/index.html directly in your browser
 ```
-
-## ✨ Features
-
-- **📂 Interactive file explorer** with canvas-drawn tree connector lines and smooth expand/collapse animations
-- **📝 Built-in markdown renderer** with YAML frontmatter tables, fenced code blocks, syntax highlighting, and a rendered/raw toggle
-- **💻 Terminal panel** simulating real Claude Code commands (`/help`, `/init`, `/doctor`, `/model`, `/cost`, and more)
-- **📊 Progress tracker** that remembers which features you've explored across sessions
-- **🎯 Nine feature areas** covering every major Claude Code extension point
-- **🥚 Easter egg** hidden behind the minimize button (try it)
-
 ## 🏗️ Project Structure
 
 The entire site is static HTML, CSS, and vanilla JavaScript. Zero build steps, zero frameworks, zero bundlers.
