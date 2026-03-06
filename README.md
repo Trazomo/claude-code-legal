@@ -7,102 +7,83 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/LukeRenton/exploreclaudecode/blob/main/LICENSE"><img src="https://img.shields.io/github/license/LukeRenton/explore-claude-code?style=flat-square&color=8e82ad" alt="License"></a>
-  <a href="https://github.com/LukeRenton/exploreclaudecode/stargazers"><img src="https://img.shields.io/github/stars/LukeRenton/explore-claude-code?style=flat-square&color=b8965e" alt="Stars"></a>
-  <a href="https://github.com/LukeRenton/exploreclaudecode/issues"><img src="https://img.shields.io/github/issues/LukeRenton/explore-claude-code?style=flat-square&color=5e918a" alt="Issues"></a>
+  <a href="https://exploreclaudecode.com"><img src="https://img.shields.io/badge/live%20demo-exploreclaudecode.com-c47a50?style=flat-square" alt="Live Demo"></a>
+  <a href="https://github.com/LukeRenton/explore-claude-code/blob/main/LICENSE"><img src="https://img.shields.io/github/license/LukeRenton/explore-claude-code?style=flat-square&color=8e82ad" alt="License"></a>
+  <a href="https://github.com/LukeRenton/explore-claude-code/stargazers"><img src="https://img.shields.io/github/stars/LukeRenton/explore-claude-code?style=flat-square&color=b8965e" alt="Stars"></a>
   <img src="https://img.shields.io/badge/zero%20dependencies-vanilla%20JS-3a3632?style=flat-square" alt="Zero Dependencies">
 </p>
 
 ---
 
-An interactive website that teaches [Claude Code](https://docs.anthropic.com/en/docs/claude-code) through a simulated project you can click through. No docs pages. No walls of text. Just a project you can poke around in.
+A simulated Claude Code project you can click through. Every file and folder in the sidebar is a real Claude Code concept — the same `.claude/` directory, config files, and scaffolding you'd find in an actual repo. Click any file to learn what it does, how to set it up, and see annotated examples you can copy into your own projects.
 
 <p align="center">
   <img src="current.png" alt="Screenshot" width="820">
 </p>
 
-## What is this?
+## What You'll Learn
 
-Every file and folder in the sidebar is a real Claude Code concept:
-
-| Folder / File | What you'll learn |
+| Folder / File | Feature |
 |---|---|
-| `CLAUDE.md` | How Claude remembers context across sessions |
-| `.claude/settings.json` | Configuring behaviour, tool access, and guardrails |
-| `.claude/commands/` | Custom slash commands — saved workflows |
-| `.claude/skills/` | Skills — folders of knowledge Claude loads autonomously |
-| `.claude/agents/` | Custom subagents for specialised tasks |
-| `.claude/rules/` | Path-specific instructions that activate contextually |
-| `.claude/MEMORY.md` | Auto-memory — persistent notes Claude maintains |
-| `.mcp.json` | MCP server configuration for extending Claude's tools |
-| `src/` | Example source code showing a real project alongside config |
+| `CLAUDE.md` | Project memory — context that persists across sessions |
+| `.claude/settings.json` | Configuring permissions, tool access, and guardrails |
+| `.claude/commands/` | Custom slash commands — saved workflows you can invoke |
+| `.claude/skills/` | Skills — knowledge folders Claude loads autonomously |
+| `.claude/agents/` | Subagents for specialised, delegated tasks |
+| `.claude/hooks/` | Lifecycle hooks — shell scripts that run on Claude events |
+| `.claude/plugins/` | Plugins — extend Claude with custom tools and resources |
+| `.mcp.json` | MCP server configuration for external tool integrations |
+| `src/` | Example source code showing config alongside a real project |
 
-Click a file, read the content, understand the feature. The content *is* the config — self-describing boilerplate that explains itself.
+Each file's content *is* the config — self-describing boilerplate that explains itself.
 
-## Getting Started
+## Try It
 
-The site is static HTML/CSS/JS with zero build steps.
+**[exploreclaudecode.com](https://exploreclaudecode.com)** — no install needed.
+
+Or run locally:
 
 ```bash
-# Clone
-git clone https://github.com/LukeRenton/exploreclaudecode.git
-cd exploreclaudecode
+git clone https://github.com/LukeRenton/explore-claude-code.git
+cd explore-claude-code
 
-# Serve (any static server works)
+# Any static server works
 npx serve site
 # or
 python -m http.server -d site 8080
-# or just open site/index.html in your browser
+# or just open site/index.html directly
 ```
-
-Then open `http://localhost:8080` (or `3000` with `npx serve`).
 
 ## Project Structure
 
 ```
-exploreclaudecode/
-├── site/                    # The website
-│   ├── index.html           # Single-page app entry
+explore-claude-code/
+├── site/
+│   ├── index.html            # Single-page app entry
 │   ├── data/
-│   │   └── manifest.json    # All tree structure + content
+│   │   └── manifest.json     # All tree structure + content (drives entire UI)
+│   ├── content/              # Source markdown & config files
 │   ├── js/
-│   │   ├── app.js           # Main controller
-│   │   ├── file-explorer.js # Sidebar tree with animated canvas connectors
-│   │   ├── content-loader.js# Custom markdown renderer
-│   │   ├── terminal.js      # Interactive terminal panel
-│   │   ├── progress.js      # Feature completion tracker
-│   │   └── icons.js         # SVG icon set
-│   └── css/
-│       ├── variables.css    # Design tokens
-│       ├── layout.css       # App shell layout
-│       ├── components.css   # Tree, content, badges
-│       ├── syntax.css       # Code block theming
-│       ├── terminal.css     # Terminal panel styles
-│       └── void.css         # Easter egg
+│   │   ├── app.js            # Main controller
+│   │   ├── file-explorer.js  # Sidebar tree with canvas connectors
+│   │   ├── content-loader.js # Markdown renderer
+│   │   ├── terminal.js       # Interactive terminal panel
+│   │   ├── progress.js       # Feature completion tracker
+│   │   └── icons.js          # SVG icon library
+│   └── css/                  # Split by concern (variables, layout, components, syntax, terminal, void)
 ├── logo.png
 └── README.md
 ```
-
-All educational content lives in `site/data/manifest.json`. The manifest drives the entire UI — tree structure, file content, labels, badges, and feature groupings.
-
-## How It Works
-
-- **File explorer** — Canvas-drawn tree connector lines with staggered expand/collapse animations
-- **Content renderer** — Hand-rolled markdown parser supporting frontmatter tables, fenced code blocks, inline code, tables, lists, and links
-- **Terminal panel** — Interactive Claude Code terminal simulation with working commands
-- **Progress tracker** — Tracks which features you've explored across the session
-- **Easter egg** — Try clicking the minimize button
 
 ## Contributing
 
 Contributions welcome — especially for:
 
-- New educational content for Claude Code features
+- New content as Claude Code adds features
 - Accessibility improvements
 - Mobile experience refinements
-- Translations
 
-To add or modify content, edit `site/data/manifest.json`. Each tree node has a `content` field containing the markdown that renders when you click it.
+Content lives in `site/data/manifest.json` and `site/content/`. The manifest drives the tree structure, badges, and feature groupings. Each node's `contentFile` points to a markdown or JSON file in `content/`.
 
 ## License
 
