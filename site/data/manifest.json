@@ -92,16 +92,6 @@
   },
   "tree": [
     {
-      "name": "CLAUDE.md",
-      "path": "CLAUDE.md",
-      "type": "file",
-      "feature": "claude-md",
-      "badge": "memory",
-      "label": "Project Memory",
-      "description": "The file Claude reads at the start of every session. Your project's persistent memory.",
-      "contentFile": "CLAUDE.md"
-    },
-    {
       "name": ".claude",
       "path": ".claude",
       "type": "directory",
@@ -386,16 +376,6 @@
       ]
     },
     {
-      "name": ".mcp.json",
-      "path": ".mcp.json",
-      "type": "file",
-      "feature": "mcp",
-      "badge": "mcp",
-      "label": "MCP Configuration",
-      "description": "Connect Claude to external tools, APIs, and services via the Model Context Protocol.",
-      "contentFile": ".mcp.json"
-    },
-    {
       "name": "src",
       "path": "src",
       "type": "directory",
@@ -412,6 +392,26 @@
           "contentFile": "src/index.ts"
         }
       ]
+    },
+    {
+      "name": "CLAUDE.md",
+      "path": "CLAUDE.md",
+      "type": "file",
+      "feature": "claude-md",
+      "badge": "memory",
+      "label": "Project Memory",
+      "description": "The file Claude reads at the start of every session. Your project's persistent memory.",
+      "contentFile": "CLAUDE.md"
+    },
+    {
+      "name": ".mcp.json",
+      "path": ".mcp.json",
+      "type": "file",
+      "feature": "mcp",
+      "badge": "mcp",
+      "label": "MCP Configuration",
+      "description": "Connect Claude to external tools, APIs, and services via the Model Context Protocol.",
+      "contentFile": ".mcp.json"
     }
   ]
 }
