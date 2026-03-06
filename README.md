@@ -21,70 +21,95 @@ A simulated Claude Code project you can click through. Every file and folder in 
   <img src="current.png" alt="Screenshot" width="820">
 </p>
 
-## What You'll Learn
+## 📚 What You'll Learn
 
 | Folder / File | Feature |
 |---|---|
-| `CLAUDE.md` | Project memory — context that persists across sessions |
-| `.claude/settings.json` | Configuring permissions, tool access, and guardrails |
-| `.claude/commands/` | Custom slash commands — saved workflows you can invoke |
-| `.claude/skills/` | Skills — knowledge folders Claude loads autonomously |
+| `CLAUDE.md` | Project memory that persists across sessions |
+| `.claude/settings.json` | Permissions, tool access, and guardrails |
+| `.claude/commands/` | Custom slash commands for saved workflows |
+| `.claude/skills/` | Knowledge folders Claude loads autonomously |
 | `.claude/agents/` | Subagents for specialised, delegated tasks |
-| `.claude/hooks/` | Lifecycle hooks — shell scripts that run on Claude events |
-| `.claude/plugins/` | Plugins — extend Claude with custom tools and resources |
-| `.mcp.json` | MCP server configuration for external tool integrations |
-| `src/` | Example source code showing config alongside a real project |
+| `.claude/hooks/` | Shell scripts that run on Claude lifecycle events |
+| `.claude/plugins/` | Extend Claude with custom tools and resources |
+| `.mcp.json` | MCP server config for external tool integrations |
+| `src/` | Example source code sitting alongside real config |
 
-Each file's content *is* the config — self-describing boilerplate that explains itself.
+Every piece of content in the explorer is written as if it were a real config file in a real repo. You're not reading *about* the config, you're reading *the config itself*, annotated so you understand every line. When you're done exploring, you can copy the scaffolding straight into your own projects.
 
-## Try It
+## 🚀 Try It
 
-**[exploreclaudecode.com](https://exploreclaudecode.com)** — no install needed.
+The fastest way to get started is the live site:
 
-Or run locally:
+**👉 [exploreclaudecode.com](https://exploreclaudecode.com)**
+
+No install, no signup, no build step. Just open it and start clicking.
+
+If you want to run it locally, clone the repo and point any static server at the `site/` directory:
 
 ```bash
 git clone https://github.com/LukeRenton/explore-claude-code.git
 cd explore-claude-code
 
-# Any static server works
 npx serve site
 # or
 python -m http.server -d site 8080
-# or just open site/index.html directly
+# or just open site/index.html directly in your browser
 ```
 
-## Project Structure
+## ✨ Features
+
+- **📂 Interactive file explorer** with canvas-drawn tree connector lines and smooth expand/collapse animations
+- **📝 Built-in markdown renderer** with YAML frontmatter tables, fenced code blocks, syntax highlighting, and a rendered/raw toggle
+- **💻 Terminal panel** simulating real Claude Code commands (`/help`, `/init`, `/doctor`, `/model`, `/cost`, and more)
+- **📊 Progress tracker** that remembers which features you've explored across sessions
+- **🎯 Nine feature areas** covering every major Claude Code extension point
+- **🥚 Easter egg** hidden behind the minimize button (try it)
+
+## 🏗️ Project Structure
+
+The entire site is static HTML, CSS, and vanilla JavaScript. Zero build steps, zero frameworks, zero bundlers.
 
 ```
 explore-claude-code/
 ├── site/
-│   ├── index.html            # Single-page app entry
+│   ├── index.html            # Single-page app entry point
 │   ├── data/
-│   │   └── manifest.json     # All tree structure + content (drives entire UI)
-│   ├── content/              # Source markdown & config files
+│   │   └── manifest.json     # Drives the entire UI (tree, content, badges, features)
+│   ├── content/              # Source markdown and config files
 │   ├── js/
-│   │   ├── app.js            # Main controller
-│   │   ├── file-explorer.js  # Sidebar tree with canvas connectors
-│   │   ├── content-loader.js # Markdown renderer
+│   │   ├── app.js            # Main controller, routing, keyboard nav
+│   │   ├── file-explorer.js  # Sidebar tree with animated canvas connectors
+│   │   ├── content-loader.js # Custom markdown parser and renderer
 │   │   ├── terminal.js       # Interactive terminal panel
-│   │   ├── progress.js       # Feature completion tracker
-│   │   └── icons.js          # SVG icon library
-│   └── css/                  # Split by concern (variables, layout, components, syntax, terminal, void)
+│   │   ├── progress.js       # Feature completion tracking (localStorage)
+│   │   └── icons.js          # Hand-crafted SVG icon library
+│   └── css/                  # Variables, layout, components, syntax, terminal, void
 ├── logo.png
 └── README.md
 ```
 
-## Contributing
+All educational content is stored in `site/data/manifest.json` and the source files in `site/content/`. The manifest is the single source of truth for the tree structure, badges, feature groupings, and content references. To add or change content, that's where you go.
 
-Contributions welcome — especially for:
+## 🤝 Contributing
 
-- New content as Claude Code adds features
-- Accessibility improvements
-- Mobile experience refinements
+Contributions are welcome! Here are some areas where help would be great:
 
-Content lives in `site/data/manifest.json` and `site/content/`. The manifest drives the tree structure, badges, and feature groupings. Each node's `contentFile` points to a markdown or JSON file in `content/`.
+- **Content** for new Claude Code features as they ship
+- **Accessibility** improvements (keyboard nav, screen readers, ARIA)
+- **Mobile** experience refinements
+- **Translations** into other languages
 
-## License
+If you'd like to add or update educational content, the two places to look are:
+1. `site/data/manifest.json` for tree structure and metadata
+2. `site/content/` for the actual markdown and config files
+
+Feel free to open an issue if you have ideas or spot something that could be better.
+
+## ⭐ Support
+
+If you found this useful, consider giving it a star! It helps others discover the project.
+
+## 📄 License
 
 [MIT](LICENSE)
