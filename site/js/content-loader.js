@@ -18,10 +18,11 @@ class ContentLoader {
     let cardsHtml = '';
     for (const id of featureIds) {
       const f = features[id];
+      const depTag = f.deprecated ? '<span class="feature-card__deprecated">deprecated</span>' : '';
       cardsHtml += `
-        <div class="feature-card" data-feature="${id}">
+        <div class="feature-card${f.deprecated ? ' feature-card--deprecated' : ''}" data-feature="${id}">
           <div class="feature-card__icon">${Icons.forFeature(id, 22)}</div>
-          <div class="feature-card__title">${f.title}</div>
+          <div class="feature-card__title">${f.title}${depTag}</div>
           <div class="feature-card__desc">${f.description}</div>
         </div>`;
     }
@@ -108,6 +109,11 @@ class ContentLoader {
     html += `<h1 class="file-view__title">${feature ? feature.title : (node.label || node.name)}</h1>`;
     if (node.description) {
       html += `<p class="file-view__desc">${node.description}</p>`;
+    }
+
+    // Deprecation notice
+    if (feature && feature.deprecated) {
+      html += `<div class="file-view__deprecated">Deprecated: this feature has been superseded by <strong>skills</strong>. Commands still work, but skills offer frontmatter, supporting files, and auto-loading.</div>`;
     }
 
     // File path
@@ -401,10 +407,13 @@ class ContentLoader {
   _renderMarkdown(md) {
     const esc = (s) => this._escapeHtml(s);
 
+    // Normalize line endings (Windows \r\n → \n)
+    md = md.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+
     // Handle YAML frontmatter: if content starts with ---, extract and render as table
     let frontmatter = '';
     let body = md;
-    if (md.startsWith('---\n') || md.startsWith('---\r\n')) {
+    if (md.startsWith('---\n')) {
       const endIdx = md.indexOf('\n---', 3);
       if (endIdx !== -1) {
         const fmContent = md.substring(4, endIdx).trim();

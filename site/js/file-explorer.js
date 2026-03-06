@@ -73,6 +73,16 @@ class FileExplorer {
       item.appendChild(badge);
     }
 
+    // Check if this directory's feature is deprecated
+    const dirFeature = this._featureForBadge(node.badge);
+    if (dirFeature && this.manifest.features[dirFeature]?.deprecated) {
+      item.classList.add('tree-item--deprecated');
+      const dep = document.createElement('span');
+      dep.className = 'tree-badge tree-badge--deprecated';
+      dep.textContent = 'deprecated';
+      item.appendChild(dep);
+    }
+
     wrapper.appendChild(item);
 
     let childrenDiv = null;
@@ -345,6 +355,11 @@ class FileExplorer {
       item.appendChild(badge);
     }
 
+    // Check if this file's feature is deprecated
+    if (node.feature && this.manifest.features[node.feature]?.deprecated) {
+      item.classList.add('tree-item--deprecated');
+    }
+
     item.addEventListener('click', () => {
       const prev = document.querySelector('.tree-item.selected');
       if (prev) prev.classList.remove('selected');
@@ -379,6 +394,18 @@ class FileExplorer {
         const found = this._findNode(node.children, path);
         if (found) return found;
       }
+    }
+    return null;
+  }
+
+  /** Map a badge name to its corresponding feature key (they often match) */
+  _featureForBadge(badge) {
+    if (!badge) return null;
+    const features = this.manifest.features;
+    if (features[badge]) return badge;
+    // Check children for a matching feature
+    for (const key of Object.keys(features)) {
+      if (this.manifest.badges[badge]?.label === features[key].title?.toLowerCase()) return key;
     }
     return null;
   }

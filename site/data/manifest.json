@@ -48,7 +48,8 @@
     "commands": {
       "title": "Custom Slash Commands",
       "description": "Saved workflows you can invoke with a keystroke.",
-      "order": 3
+      "order": 3,
+      "deprecated": true
     },
     "skills": {
       "title": "Skills",
@@ -71,8 +72,8 @@
       "order": 7
     },
     "agents": {
-      "title": "Subagents",
-      "description": "Delegate specialised tasks to focused sub-agents with their own instructions.",
+      "title": "Agents",
+      "description": "Create specialised subagents and coordinate agent teams for parallel work.",
       "order": 8
     }
   },
@@ -114,31 +115,26 @@
               "type": "file",
               "feature": "commands",
               "badge": "commands",
-              "label": "What Are Commands?",
-              "description": "Custom slash commands - reusable prompts you trigger with /command-name.",
+              "label": "Commands (Deprecated)",
+              "description": "Learn about the original slash command system and how it has been merged into skills.",
               "contentFile": ".claude/commands/COMMANDS.md"
             },
             {
-              "name": "review-pr.md",
-              "path": ".claude/commands/review-pr.md",
-              "type": "file",
-              "feature": "commands",
-              "badge": "commands",
-              "label": "Review PR Command",
-              "description": "A custom command that reviews code against your team's standards.",
-              "command": "/review-pr",
-              "contentFile": ".claude/commands/review-pr.md"
-            },
-            {
-              "name": "write-tests.md",
-              "path": ".claude/commands/write-tests.md",
-              "type": "file",
-              "feature": "commands",
-              "badge": "commands",
-              "label": "Write Tests Command",
-              "description": "A custom command that generates tests following your project conventions.",
-              "command": "/write-tests",
-              "contentFile": ".claude/commands/write-tests.md"
+              "name": "my-command",
+              "path": ".claude/commands/my-command",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "my-command.md",
+                  "path": ".claude/commands/my-command/my-command.md",
+                  "type": "file",
+                  "feature": "commands",
+                  "badge": "commands",
+                  "label": "Command File Scaffolding",
+                  "description": "A starter command file showing the prompt template format and how $ARGUMENTS works.",
+                  "contentFile": ".claude/commands/my-command/my-command.md"
+                }
+              ]
             }
           ]
         },
@@ -240,19 +236,26 @@
               "type": "file",
               "feature": "agents",
               "badge": "agents",
-              "label": "What Are Subagents?",
-              "description": "Focused sub-agents that Claude can delegate specialised tasks to.",
+              "label": "Agents Overview",
+              "description": "Learn about subagents, agent teams, and how to create custom agents for specialised tasks.",
               "contentFile": ".claude/agents/AGENTS.md"
             },
             {
-              "name": "code-reviewer.md",
-              "path": ".claude/agents/code-reviewer.md",
-              "type": "file",
-              "feature": "agents",
-              "badge": "agents",
-              "label": "Code Reviewer Agent",
-              "description": "A subagent definition focused on thorough code review.",
-              "contentFile": ".claude/agents/code-reviewer.md"
+              "name": "my-agent",
+              "path": ".claude/agents/my-agent",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "my-agent.md",
+                  "path": ".claude/agents/my-agent/my-agent.md",
+                  "type": "file",
+                  "feature": "agents",
+                  "badge": "agents",
+                  "label": "Agent File Scaffolding",
+                  "description": "A starter agent file showing YAML frontmatter configuration and system prompt structure.",
+                  "contentFile": ".claude/agents/my-agent/my-agent.md"
+                }
+              ]
             }
           ]
         },
