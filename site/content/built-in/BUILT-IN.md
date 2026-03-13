@@ -16,10 +16,20 @@ Prompt-based workflows available in every Claude Code session. Unlike the custom
 - `/loop` - Run prompts on a recurring interval
 - `/claude-api` - Load API and SDK reference for your language
 
+### Built-in Commands
+
+Slash commands baked into Claude Code that run fixed logic directly. Session management, configuration, diagnostics, integrations, and more. Over 50 commands organised by category.
+
+- `/compact` - Compress conversation to reclaim context
+- `/btw` - Ask a side question without cluttering history
+- `/diff` - Interactive viewer for uncommitted changes
+- `/init` - Generate a starter CLAUDE.md from your codebase
+- `/rewind` - Restore conversation and code to a previous point
+
 ### More Coming Soon
 
 This section will grow to cover other built-in capabilities like CLI flags, permission modes, keyboard shortcuts, and the auto-memory system.
 
 ## Explore
 
-Open the `bundled-skills/` folder below to see detailed breakdowns of each skill.
+Open the folders below to see detailed breakdowns of each category.

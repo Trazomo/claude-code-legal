@@ -97,6 +97,11 @@
       "title": "Bundled Skills",
       "description": "Prompt-based workflows that ship with every Claude Code session.",
       "order": 10
+    },
+    "built-in-commands": {
+      "title": "Built-in Commands",
+      "description": "Slash commands baked into Claude Code that execute fixed logic directly.",
+      "order": 11
     }
   },
   "tree": [
@@ -539,6 +544,109 @@
                   "label": "/claude-api",
                   "description": "Loads API and SDK reference material for your project's language. Auto-activates on imports.",
                   "contentFile": "built-in/bundled-skills/claude-api/claude-api.md"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "commands",
+          "path": "built-in/commands",
+          "type": "directory",
+          "badge": "builtin",
+          "children": [
+            {
+              "name": "BUILT-IN-COMMANDS.md",
+              "path": "built-in/commands/BUILT-IN-COMMANDS.md",
+              "type": "file",
+              "feature": "built-in-commands",
+              "badge": "builtin",
+              "label": "Built-in Commands Overview",
+              "description": "All slash commands baked into Claude Code, organised by category.",
+              "contentFile": "built-in/commands/BUILT-IN-COMMANDS.md"
+            },
+            {
+              "name": "btw",
+              "path": "built-in/commands/btw",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "btw.md",
+                  "path": "built-in/commands/btw/btw.md",
+                  "type": "file",
+                  "feature": "built-in-commands",
+                  "badge": "builtin",
+                  "label": "/btw",
+                  "description": "Ask a side question without adding to conversation history.",
+                  "contentFile": "built-in/commands/btw/btw.md"
+                }
+              ]
+            },
+            {
+              "name": "compact",
+              "path": "built-in/commands/compact",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "compact.md",
+                  "path": "built-in/commands/compact/compact.md",
+                  "type": "file",
+                  "feature": "built-in-commands",
+                  "badge": "builtin",
+                  "label": "/compact",
+                  "description": "Compress conversation to reclaim context window space.",
+                  "contentFile": "built-in/commands/compact/compact.md"
+                }
+              ]
+            },
+            {
+              "name": "diff",
+              "path": "built-in/commands/diff",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "diff.md",
+                  "path": "built-in/commands/diff/diff.md",
+                  "type": "file",
+                  "feature": "built-in-commands",
+                  "badge": "builtin",
+                  "label": "/diff",
+                  "description": "Interactive diff viewer for uncommitted changes and per-turn diffs.",
+                  "contentFile": "built-in/commands/diff/diff.md"
+                }
+              ]
+            },
+            {
+              "name": "init",
+              "path": "built-in/commands/init",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "init.md",
+                  "path": "built-in/commands/init/init.md",
+                  "type": "file",
+                  "feature": "built-in-commands",
+                  "badge": "builtin",
+                  "label": "/init",
+                  "description": "Analyse your codebase and generate a starter CLAUDE.md.",
+                  "contentFile": "built-in/commands/init/init.md"
+                }
+              ]
+            },
+            {
+              "name": "rewind",
+              "path": "built-in/commands/rewind",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "rewind.md",
+                  "path": "built-in/commands/rewind/rewind.md",
+                  "type": "file",
+                  "feature": "built-in-commands",
+                  "badge": "builtin",
+                  "label": "/rewind",
+                  "description": "Restore conversation and code to a previous checkpoint.",
+                  "contentFile": "built-in/commands/rewind/rewind.md"
                 }
               ]
             }
