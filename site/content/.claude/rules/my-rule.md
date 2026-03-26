@@ -1,7 +1,5 @@
 ---
-paths:
-  - "src/**/*.ts"
-  - "src/**/*.py"
+paths: ["src/**/*.ts", "src/**/*.py"]
 ---
 
 # Source Code Conventions
@@ -25,13 +23,24 @@ Extends CLAUDE.md with patterns specific to application source files.
 
 ---
 
-This is a starter rule file. The filename `my-rule.md` is just an example. Name your rules descriptively: `backend-api.md`, `testing.md`, `frontend-react.md`.
+This is a starter rule file. The filename `my-rule.md` is just an example. Name your rules descriptively: `database.md`, `security.md`, `api-design.md`.
 
 ## Anatomy of This File
 
 The **frontmatter** (between the `---` markers at the top) is optional but recommended. It controls when this rule loads:
 
 - `paths`: file patterns that trigger this rule. When Claude reads a file matching any of these patterns, this rule is loaded into context
+
+The inline format (`paths: ["pattern1", "pattern2"]`) works for short lists. For longer lists, use the multi-line YAML format:
+
+```yaml
+---
+paths:
+  - "src/**/*.ts"
+  - "src/**/*.py"
+  - "lib/**/*.js"
+---
+```
 
 If you omit the frontmatter entirely (or omit `paths`), the rule is always loaded, behaving like an extension of CLAUDE.md.
 
@@ -69,16 +78,18 @@ Rules and [skills](^Skills are reusable instruction packages with SKILL.md, opti
 | Purpose | Passive conventions loaded into context | Active instructions, optionally invocable |
 | Activation | Automatic, based on file patterns | Automatic or via `/skill-name` |
 | Supporting files | None (just the .md file) | scripts/, references/, assets/ |
-| Side effects | Never | Can run commands and modify files |
+| Side effects | None (passive context only) | Can run commands and modify files |
 
 Use rules for "always follow these patterns when reading these files." Use skills for "here is how to perform this specific task."
 
-## Real-World Examples
+## Real-World Path Configurations
 
-Teams commonly create rules like:
+Example `paths` values for common rule files:
 
-- `backend-api.md` with paths scoped to controller files: error handling, auth patterns, response formats
-- `testing.md` with paths scoped to test directories: test structure, mock patterns, assertion conventions
-- `database.md` with paths scoped to data access code: ORM patterns, migration rules, query conventions
-- `frontend-react.md` with paths scoped to component files: state management, styling, accessibility patterns
-- `infrastructure.md` with paths scoped to Docker/CI files: security settings, deployment checklists
+| Rule file | paths |
+|---|---|
+| `api-design.md` | `["src/api/**/*.ts", "src/routes/**/*.py"]` |
+| `test-patterns.md` | `["**/*.test.{ts,js}", "tests/**/*.py"]` |
+| `migrations.md` | `["**/migrations/**/*", "src/models/**/*"]` |
+| `components.md` | `["src/components/**/*.tsx", "src/hooks/**/*.ts"]` |
+| `ci-cd.md` | `["Dockerfile*", ".github/**/*", "*.yml"]` |
