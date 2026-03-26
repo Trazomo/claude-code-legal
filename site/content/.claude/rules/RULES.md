@@ -26,8 +26,8 @@ Rules optionally use YAML frontmatter to control when they activate:
 ```yaml
 ---
 paths:
-  - "src/backend/**/*.cs"
-  - "src/api/**/*.ts"
+  - "src/**/*.ts"
+  - "src/**/*.py"
 ---
 ```
 
@@ -64,7 +64,7 @@ Use **CLAUDE.md** for project-wide context that always applies. Use **rules** fo
 
 **Testing conventions**: testing patterns that activate only when working in test directories. Keeps test-specific rules out of context during normal development.
 
-**API patterns**: endpoint conventions, error handling, and response format rules scoped to controller files.
+**API patterns**: endpoint conventions, error handling, and response format rules scoped to API handler files.
 
 **Infrastructure rules**: Docker, CI/CD, and deployment conventions scoped to infrastructure files. Prevents infrastructure noise when reading application code.
 
