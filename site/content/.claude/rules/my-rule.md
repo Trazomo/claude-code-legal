@@ -1,6 +1,5 @@
 ---
-description: Example conventions for backend API endpoints
-globs:
+paths:
   - "src/backend/**/*.cs"
   - "src/api/**/*.ts"
 ---
@@ -32,14 +31,13 @@ This is a starter rule file. The filename `my-rule.md` is just an example. Name 
 
 The **frontmatter** (between the `---` markers at the top) is optional but recommended. It controls when this rule loads:
 
-- `description`: explains what the rule covers. Useful for documentation and for Claude to understand the rule's purpose
-- `globs`: file patterns that trigger this rule. When you edit a file matching any of these patterns, Claude loads this rule into context
+- `paths`: file patterns that trigger this rule. When Claude reads a file matching any of these patterns, this rule is loaded into context
 
-If you omit the frontmatter entirely (or omit `globs`), the rule is always loaded, behaving like an extension of CLAUDE.md.
+If you omit the frontmatter entirely (or omit `paths`), the rule is always loaded, behaving like an extension of CLAUDE.md.
 
 The **body** contains your actual conventions. Write them as direct instructions. Bullet lists and short headers work best because Claude scans structure the same way a developer does.
 
-## Glob Pattern Examples
+## Path Pattern Examples
 
 | Pattern | Matches |
 |---|---|
@@ -59,7 +57,7 @@ Put conventions in a **rule file** when they:
 Keep conventions in **CLAUDE.md** when they:
 - Apply universally (naming, git workflow, PR process)
 - Are short enough that splitting them out adds more overhead than it saves
-- Need to be visible at all times regardless of what files Claude is editing
+- Need to be visible at all times regardless of what files Claude is reading
 
 ## Rules vs Skills
 
@@ -67,20 +65,20 @@ Rules and [skills](^Skills are reusable instruction packages with SKILL.md, opti
 
 | | Rules | Skills |
 |---|---|---|
-| Format | Markdown with optional globs frontmatter | SKILL.md with required name/description frontmatter |
+| Format | Markdown with optional `paths` frontmatter | SKILL.md with required name/description frontmatter |
 | Purpose | Passive conventions loaded into context | Active instructions, optionally invocable |
 | Activation | Automatic, based on file patterns | Automatic or via `/skill-name` |
 | Supporting files | None (just the .md file) | scripts/, references/, assets/ |
 | Side effects | Never | Can run commands and modify files |
 
-Use rules for "always follow these patterns when editing these files." Use skills for "here is how to perform this specific task."
+Use rules for "always follow these patterns when reading these files." Use skills for "here is how to perform this specific task."
 
 ## Real-World Examples
 
 Teams commonly create rules like:
 
-- `backend-api.md` with globs for controller files: error handling, auth patterns, response formats
-- `testing.md` with globs for test directories: test structure, mock patterns, assertion conventions
-- `database.md` with globs for data access code: ORM patterns, migration rules, query conventions
-- `frontend-react.md` with globs for component files: state management, styling, accessibility patterns
-- `infrastructure.md` with globs for Docker/CI files: security settings, deployment checklists
+- `backend-api.md` with paths scoped to controller files: error handling, auth patterns, response formats
+- `testing.md` with paths scoped to test directories: test structure, mock patterns, assertion conventions
+- `database.md` with paths scoped to data access code: ORM patterns, migration rules, query conventions
+- `frontend-react.md` with paths scoped to component files: state management, styling, accessibility patterns
+- `infrastructure.md` with paths scoped to Docker/CI files: security settings, deployment checklists
