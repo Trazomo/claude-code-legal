@@ -1,50 +1,50 @@
 /* ── Design Tokens ─────────────────────────────────────────── */
 
 :root {
-  /* Background layers — warm charcoal, not cold blue-gray */
-  --bg-base: #141211;
-  --bg-surface: #1a1816;
-  --bg-elevated: #22201d;
-  --bg-hover: #2a2825;
-  --bg-active: #33302c;
+  /* Background layers — deep navy */
+  --bg-base: #0d1f33;
+  --bg-surface: #132c49;
+  --bg-elevated: #1a3a5e;
+  --bg-hover: #22476f;
+  --bg-active: #2a5280;
 
-  /* Text — warm cream, not cool white */
-  --text-primary: #b8b0a4;
-  --text-secondary: #847c72;
-  --text-muted: #5c564f;
-  --text-bright: #e6dfd6;
+  /* Text — cool light */
+  --text-primary: #d8e8f5;
+  --text-secondary: #8ba8c4;
+  --text-muted: #5e7f9e;
+  --text-bright: #ecf6ff;
 
-  /* Borders — warm grays */
-  --border-subtle: #272421;
-  --border-default: #3a3632;
-  --border-strong: #4d4841;
+  /* Borders — navy grays */
+  --border-subtle: #1a3050;
+  --border-default: #2a4a6a;
+  --border-strong: #3a6080;
 
-  /* Accent — terracotta, not purple */
-  --accent: #c47a50;
-  --accent-hover: #d48e66;
-  --accent-muted: rgba(196, 122, 80, 0.10);
+  /* Accent — mint */
+  --accent: #4dd4b4;
+  --accent-hover: #66e0c4;
+  --accent-muted: rgba(77, 212, 180, 0.10);
 
-  /* Badge colors — muted, earthy, not neon */
-  --badge-memory: #b07a6e;
+  /* Badge colors — muted, complementary to navy/mint */
+  --badge-memory: #6ea0b0;
   --badge-commands: #8e82ad;
-  --badge-config: #7a7670;
+  --badge-config: #7a8a96;
   --badge-mcp: #6e9468;
-  --badge-skill: #5e918a;
+  --badge-skill: #4dd4b4;
   --badge-agents: #b8965e;
-  --badge-plugins: #a89a48;
+  --badge-plugins: #a8a048;
   --badge-marketplace: #7a8b5e;
   --badge-hooks: #ad6e5e;
   --badge-code: #5e82a0;
   --badge-builtin: #7d8a98;
   --badge-cli: #8e82ad;
 
-  /* Radius — sharp, not puffy */
+  /* Radius — sharp */
   --radius-sm: 2px;
   --radius-md: 3px;
   --radius-lg: 4px;
 
-  /* Fonts — Space Grotesk for character, not generic Inter */
-  --font-ui: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Fonts — Inter for UI, JetBrains Mono for code */
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
 
   /* Spacing */

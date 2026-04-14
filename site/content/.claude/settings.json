@@ -1,63 +1,42 @@
 {
-  // Permissions control which tools Claude can use without asking.
-  // Each entry is a glob pattern matched against the tool + arguments.
+  // Permissions scoped for law firm security
   "permissions": {
     "allow": [
-      // Let Claude read any file without prompting
-      "Read",
-      // Let Claude search files freely
-      "Glob",
-      "Grep",
-      // Let Claude run your test suite
-      "Bash(npm test)",
-      "Bash(npm run lint)",
-      // Let Claude run dev server
-      "Bash(npm run dev)",
-      // Allow git status and diff (read-only git)
-      "Bash(git status)",
-      "Bash(git diff*)",
-      "Bash(git log*)"
+      // File access limited to matter files and templates
+      "Read /matters/**",
+      "Read /templates/**",
+      "Write /matters/**",
+      "Write /templates/**",
+      // Research tools
+      "WebSearch",
+      "WebFetch"
     ],
     "deny": [
-      // Never let Claude push to remote
-      "Bash(git push*)",
-      // Never let Claude install packages without asking
-      "Bash(npm install*)",
-      // Block destructive git commands
-      "Bash(git reset --hard*)",
-      "Bash(git clean*)"
+      // Block shell commands that could leak confidential data
+      "Bash curl *",
+      "Bash wget *",
+      "Bash ssh *",
+      "Bash scp *",
+      // Prevent writing outside approved directories
+      "Write /etc/**",
+      "Write /usr/**"
     ]
   },
 
-  // API configuration
-  "model": "claude-sonnet-4-6",
-  "maxTokens": 16384,
-
-  // Hooks run custom scripts at specific points in Claude's workflow.
-  // See .claude/hooks/ for the full overview and example scripts.
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/my-hook.sh"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "npm run lint --fix",
-            "async": true
-          }
-        ]
-      }
+  // Approved MCP servers for this project
+  "mcpServers": {
+    "approved": [
+      "filesystem",    // Local file access (scoped to /matters/ and /templates/)
+      "postgres",      // Matter management database
+      "web-search"     // Case law research (logged for audit)
     ]
-  }
+  },
+
+  // Safety: require confirmation for these actions
+  "requireConfirmation": [
+    "Delete any file",
+    "Modify files outside /matters/ and /templates/",
+    "Execute shell commands",
+    "Send data to external services"
+  ]
 }

@@ -146,8 +146,8 @@ class Terminal {
         </div>
 
         <div class="term-banner-tagline">
-          Learn by doing. Every file is a lesson.<br>
-          Every folder is a chapter.
+          Build legal automation. Every file is a feature.<br>
+          Every folder is a workflow.
         </div>
 
         <div class="term-banner-divider"></div>
@@ -160,15 +160,15 @@ class Terminal {
           </div>
           <div class="term-banner-cmd-row">
             <span class="term-text--accent">/init</span>
-            <span class="term-text--dim">- watch CLAUDE.md get created</span>
+            <span class="term-text--dim">- generate a legal CLAUDE.md</span>
           </div>
           <div class="term-banner-cmd-row">
             <span class="term-text--accent">/doctor</span>
-            <span class="term-text--dim">- run a health check</span>
+            <span class="term-text--dim">- check MCP connections</span>
           </div>
           <div class="term-banner-cmd-row">
             <span class="term-text--accent">/diff</span>
-            <span class="term-text--dim">- see a live diff demo</span>
+            <span class="term-text--dim">- see a contract clause edit</span>
           </div>
         </div>
 
@@ -203,7 +203,7 @@ class Terminal {
           </div>
           <div class="term-banner-row">
             <span class="term-banner-key">project</span>
-            <span class="term-banner-val">my-project</span>
+            <span class="term-banner-val">legal-ops-project</span>
           </div>
         </div>
       </div>
@@ -297,35 +297,34 @@ class Terminal {
   _cmdInit() {
     this._animateSequence([
       { html: '<div class="term-text--dim">Scanning project structure...</div>', delay: 400 },
-      { html: '<div class="term-text">Found: package.json, tsconfig.json, src/</div>', delay: 600 },
-      { html: '<div class="term-text--dim">Generating project context...</div>', delay: 500 },
+      { html: '<div class="term-text">Found: /matters/, /templates/, .claude/, .mcp.json</div>', delay: 600 },
+      { html: '<div class="term-text--dim">Detecting legal project conventions...</div>', delay: 500 },
       { html: '<hr class="term-hr">', delay: 200 },
       { html: `<div class="term-heading">Created CLAUDE.md</div>`, delay: 300 },
-      { html: `<div class="term-text--dim">  # Project: my-project</div>`, delay: 100 },
+      { html: `<div class="term-text--dim">  # Project: legal-ops-project</div>`, delay: 100 },
       { html: `<div class="term-text--dim">  </div>`, delay: 50 },
-      { html: `<div class="term-text--dim">  ## Tech Stack</div>`, delay: 100 },
-      { html: `<div class="term-text--dim">  - TypeScript + React</div>`, delay: 80 },
-      { html: `<div class="term-text--dim">  - Vite for bundling</div>`, delay: 80 },
-      { html: `<div class="term-text--dim">  - Tailwind CSS</div>`, delay: 80 },
+      { html: `<div class="term-text--dim">  ## Jurisdiction</div>`, delay: 100 },
+      { html: `<div class="term-text--dim">  - Default: New York</div>`, delay: 80 },
+      { html: `<div class="term-text--dim">  - Citation: Bluebook 21st Edition</div>`, delay: 80 },
       { html: `<div class="term-text--dim">  </div>`, delay: 50 },
-      { html: `<div class="term-text--dim">  ## Conventions</div>`, delay: 100 },
-      { html: `<div class="term-text--dim">  - Use functional components</div>`, delay: 80 },
-      { html: `<div class="term-text--dim">  - Prefer named exports</div>`, delay: 80 },
-      { html: `<div class="term-text--dim">  - Tests in __tests__/ directories</div>`, delay: 80 },
+      { html: `<div class="term-text--dim">  ## Confidentiality</div>`, delay: 100 },
+      { html: `<div class="term-text--dim">  - Never include client names in outputs</div>`, delay: 80 },
+      { html: `<div class="term-text--dim">  - Use placeholders: [Client], [Opposing Party]</div>`, delay: 80 },
+      { html: `<div class="term-text--dim">  - Mark drafts: ATTORNEY WORK PRODUCT</div>`, delay: 80 },
       { html: '<hr class="term-hr">', delay: 200 },
-      { html: '<div class="term-text--success">CLAUDE.md created successfully. Claude will use this as project context.</div>', delay: 0 },
+      { html: '<div class="term-text--success">CLAUDE.md created. Claude will apply firm standards to every task.</div>', delay: 0 },
     ]);
   }
 
   _cmdDoctor() {
     const checks = [
-      ['Authentication', 'authenticated as user@example.com', true, 500],
+      ['Authentication', 'authenticated as attorney@firm.com', true, 500],
       ['Model access', 'claude-opus-4-6 available', true, 400],
       ['Git repository', 'clean working tree', true, 350],
       ['Node.js', 'v22.1.0', true, 300],
-      ['MCP servers', '2 connected (filesystem, github)', true, 450],
-      ['Permissions', 'settings.json loaded', true, 300],
-      ['CLAUDE.md', 'found at project root', true, 350],
+      ['MCP servers', '3 connected (filesystem, postgres, web-search)', true, 450],
+      ['Permissions', 'settings.json loaded (scoped to /matters/)', true, 300],
+      ['CLAUDE.md', 'found — jurisdiction: NY, citation: Bluebook', true, 350],
     ];
 
     this._animateSequence([
@@ -435,16 +434,16 @@ class Terminal {
   _cmdDiff() {
     this._animateSequence([
       { html: '<div class="term-text--dim">Checking uncommitted changes...</div>', delay: 400 },
-      { html: '<div class="term-diff-hdr">--- a/src/utils/auth.ts</div>', delay: 200 },
-      { html: '<div class="term-diff-hdr">+++ b/src/utils/auth.ts</div>', delay: 100 },
-      { html: '<div class="term-diff-ctx">@@ -14,7 +14,9 @@ export function validateToken(token: string) {</div>', delay: 150 },
-      { html: '<div class="term-diff-ctx">  const decoded = jwt.verify(token, SECRET);</div>', delay: 80 },
-      { html: '<div class="term-diff-del">  return decoded;</div>', delay: 80 },
-      { html: '<div class="term-diff-add">  if (!decoded.exp || decoded.exp < Date.now() / 1000) {</div>', delay: 80 },
-      { html: '<div class="term-diff-add">    throw new TokenExpiredError(\'Token has expired\');</div>', delay: 80 },
-      { html: '<div class="term-diff-add">  }</div>', delay: 80 },
-      { html: '<div class="term-diff-add">  return decoded;</div>', delay: 80 },
-      { html: '<div class="term-diff-ctx">}</div>', delay: 80 },
+      { html: '<div class="term-diff-hdr">--- a/templates/msa/indemnification.md</div>', delay: 200 },
+      { html: '<div class="term-diff-hdr">+++ b/templates/msa/indemnification.md</div>', delay: 100 },
+      { html: '<div class="term-diff-ctx">@@ -8,5 +8,8 @@ ## 7.1 Mutual Indemnification</div>', delay: 150 },
+      { html: '<div class="term-diff-ctx">  Each Party shall indemnify the other against claims arising from</div>', delay: 80 },
+      { html: '<div class="term-diff-del">  its negligent acts or omissions.</div>', delay: 80 },
+      { html: '<div class="term-diff-add">  its negligent acts or omissions, provided that the Indemnifying</div>', delay: 80 },
+      { html: '<div class="term-diff-add">  Party\'s aggregate liability under this Section shall not exceed</div>', delay: 80 },
+      { html: '<div class="term-diff-add">  the total fees paid in the twelve (12) months preceding the claim,</div>', delay: 80 },
+      { html: '<div class="term-diff-add">  except for claims arising from gross negligence or willful misconduct.</div>', delay: 80 },
+      { html: '<div class="term-diff-ctx">  </div>', delay: 80 },
       { html: '<hr class="term-hr">', delay: 200 },
       { html: '<div class="term-stat"><span class="term-stat__key">Files changed</span><span class="term-stat__val">1</span></div>', delay: 100 },
       { html: '<div class="term-stat"><span class="term-stat__key">Insertions</span><span class="term-stat__val term-text--success">+4</span></div>', delay: 80 },
@@ -458,14 +457,14 @@ class Terminal {
         <div class="term-heading">Claude Code Status</div>
         <div class="term-stat"><span class="term-stat__key">Version</span><span class="term-stat__val">1.0.42</span></div>
         <div class="term-stat"><span class="term-stat__key">Model</span><span class="term-stat__val term-stat__val--accent">claude-opus-4-6</span></div>
-        <div class="term-stat"><span class="term-stat__key">Account</span><span class="term-stat__val">user@example.com</span></div>
+        <div class="term-stat"><span class="term-stat__key">Account</span><span class="term-stat__val">attorney@firm.com</span></div>
         <div class="term-stat"><span class="term-stat__key">Plan</span><span class="term-stat__val">Max (5x usage)</span></div>
-        <div class="term-stat"><span class="term-stat__key">Project</span><span class="term-stat__val">my-project</span></div>
-        <div class="term-stat"><span class="term-stat__key">Working dir</span><span class="term-stat__val">~/code/my-project</span></div>
+        <div class="term-stat"><span class="term-stat__key">Project</span><span class="term-stat__val">legal-ops-project</span></div>
+        <div class="term-stat"><span class="term-stat__key">Working dir</span><span class="term-stat__val">~/firm/legal-ops-project</span></div>
         <hr class="term-hr">
-        <div class="term-stat"><span class="term-stat__key">MCP servers</span><span class="term-stat__val">2 connected</span></div>
-        <div class="term-stat"><span class="term-stat__key">CLAUDE.md</span><span class="term-stat__val term-text--success">loaded</span></div>
-        <div class="term-stat"><span class="term-stat__key">Permissions</span><span class="term-stat__val">default + 3 custom</span></div>
+        <div class="term-stat"><span class="term-stat__key">MCP servers</span><span class="term-stat__val">3 connected (filesystem, postgres, web-search)</span></div>
+        <div class="term-stat"><span class="term-stat__key">CLAUDE.md</span><span class="term-stat__val term-text--success">loaded — NY jurisdiction, Bluebook</span></div>
+        <div class="term-stat"><span class="term-stat__key">Permissions</span><span class="term-stat__val">scoped to /matters/ + /templates/</span></div>
       </div>
     `);
   }
@@ -489,11 +488,11 @@ class Terminal {
       { html: '<div class="term-heading">Auto-Memory Entries</div>', delay: 300 },
       { html: '<div class="term-text--dim">from ~/.claude/projects/.../memory/MEMORY.md</div>', delay: 200 },
       { html: '<hr class="term-hr">', delay: 150 },
-      { html: '<div class="term-text">\u2022 User prefers functional components over classes</div>', delay: 150 },
-      { html: '<div class="term-text">\u2022 Always run tests with --coverage flag</div>', delay: 120 },
-      { html: '<div class="term-text">\u2022 Project uses pnpm, not npm</div>', delay: 120 },
-      { html: '<div class="term-text">\u2022 Prefer named exports over default exports</div>', delay: 120 },
-      { html: '<div class="term-text">\u2022 Error messages should be user-friendly, not technical</div>', delay: 120 },
+      { html: '<div class="term-text">\u2022 Default jurisdiction: New York — always verify governing law clause</div>', delay: 150 },
+      { html: '<div class="term-text">\u2022 Citation format: Bluebook 21st Edition — verify all citations exist</div>', delay: 120 },
+      { html: '<div class="term-text">\u2022 Indemnification cap: 12 months\' fees, carve-outs for gross negligence</div>', delay: 120 },
+      { html: '<div class="term-text">\u2022 Use [Client] and [Opposing Party] placeholders in all outputs</div>', delay: 120 },
+      { html: '<div class="term-text">\u2022 Flag unsettled areas of law and escalate to partner</div>', delay: 120 },
       { html: '<hr class="term-hr">', delay: 150 },
       { html: '<div class="term-text--dim">5 entries. Edit with <span class="term-text--accent">/memory --edit</span></div>', delay: 0 },
     ]);

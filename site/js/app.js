@@ -299,9 +299,9 @@ class App {
     if (voidText) {
       voidText.innerHTML = `
         <p class="void__line void__line--dim">you tried to minimize me.</p>
-        <p class="void__line void__line--bold">bold move.</p>
-        <p class="void__line void__line--main">Claude Code doesn't shrink.<br>It expands into every corner of your codebase.</p>
-        <p class="void__line void__line--dim void__line--small">Agentic coding with no limits. Infinite context. Parallel tool use.<br>Your entire repository as working memory.</p>
+        <p class="void__line void__line--bold">objection overruled.</p>
+        <p class="void__line void__line--main">Claude Code doesn't shrink.<br>It expands into every corner of your legal practice.</p>
+        <p class="void__line void__line--dim void__line--small">Agentic coding with no limits. Infinite context. Parallel tool use.<br>Your entire matter file as working memory.</p>
       `;
     }
 
@@ -632,12 +632,12 @@ class App {
       const voidText = document.getElementById('void-text');
       if (voidText) {
         voidText.innerHTML = `
-          <p class="void__line void__line--bold">you fed it everything.</p>
+          <p class="void__line void__line--bold">you fed it the entire case file.</p>
           <p class="void__line void__line--main">and it's still hungry.</p>
           <p class="void__line void__line--dim void__line--small">
             200k context window. Infinite ambition.<br>
             Some say if you minimize Claude Code three times,<br>
-            it starts writing your code before you ask.
+            it starts drafting your motions before you ask.
           </p>
         `;
       }

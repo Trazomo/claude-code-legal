@@ -1,0 +1,57 @@
+{
+  "name": "legal-ops-toolkit",
+  "version": "1.0.0",
+  "description": "Legal operations plugin bundling jurisdiction skills, contract review agents, and confidentiality hooks for law firm workflows.",
+  "author": "Trazomo",
+  "license": "MIT",
+
+  "skills": [
+    {
+      "name": "jurisdiction-ny",
+      "path": "skills/jurisdiction-ny/SKILL.md",
+      "description": "New York legal requirements, statutes of limitation, and citation conventions"
+    }
+  ],
+
+  "agents": [
+    {
+      "name": "contract-reviewer",
+      "path": "agents/contract-reviewer.md",
+      "description": "Extract key terms and risk-rate contract provisions"
+    },
+    {
+      "name": "research-assistant",
+      "path": "agents/research-assistant.md",
+      "description": "Verify legal claims and find supporting authority"
+    },
+    {
+      "name": "memo-drafter",
+      "path": "agents/memo-drafter.md",
+      "description": "Synthesize analysis into a client-ready memorandum"
+    }
+  ],
+
+  "hooks": [
+    {
+      "event": "PreToolUse",
+      "script": "hooks/confidentiality-guard.sh",
+      "description": "Block writes containing PII or privilege markers"
+    },
+    {
+      "event": "PostToolUse",
+      "script": "hooks/citation-validator.sh",
+      "description": "Verify Bluebook citation format in written documents"
+    }
+  ],
+
+  "commands": [
+    {
+      "name": "review-contract",
+      "path": "commands/review-contract.md"
+    },
+    {
+      "name": "draft-memo",
+      "path": "commands/draft-memo.md"
+    }
+  ]
+}
