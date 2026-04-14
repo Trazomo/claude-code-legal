@@ -240,6 +240,8 @@ class Terminal {
       '/status': () => this._cmdStatus(),
       '/config': () => this._cmdConfig(),
       '/memory': () => this._cmdMemory(),
+      '/review-contract': () => this._cmdReviewContract(),
+      '/draft-memo': () => this._cmdDraftMemo(),
     };
 
     if (handlers[cmd]) {
@@ -276,6 +278,8 @@ class Terminal {
       ['/status', 'Version, model, and account info'],
       ['/config', 'Open settings explorer'],
       ['/memory', 'View auto-memory entries'],
+      ['/review-contract', 'Run contract review analysis'],
+      ['/draft-memo', 'Generate IRAC legal memo'],
       ['/clear', 'Clear terminal output'],
     ];
 
@@ -496,6 +500,57 @@ class Terminal {
       { html: '<hr class="term-hr">', delay: 150 },
       { html: '<div class="term-text--dim">5 entries. Edit with <span class="term-text--accent">/memory --edit</span></div>', delay: 0 },
     ]);
+  }
+
+  _cmdReviewContract() {
+    this._animateSequence([
+      { html: '<div class="term-text--dim">Loading /review-contract command...</div>', delay: 400 },
+      { html: '<div class="term-text">Reading: templates/msa/acme-services-agreement.pdf</div>', delay: 600 },
+      { html: '<div class="term-text--dim">Dispatching contract-reviewer agent...</div>', delay: 500 },
+      { html: '<hr class="term-hr">', delay: 200 },
+      { html: '<div class="term-heading">Contract Review: Acme Services Agreement</div>', delay: 300 },
+      { html: '<div class="term-text"><strong>Parties:</strong> [Client] (Buyer) / Acme Corp (Seller)</div>', delay: 150 },
+      { html: '<div class="term-text"><strong>Term:</strong> 24 months, auto-renew, 30-day opt-out</div>', delay: 120 },
+      { html: '<hr class="term-hr">', delay: 150 },
+      { html: '<div class="term-heading">Risk Flags</div>', delay: 200 },
+      { html: '<div class="term-text term-text--error">\u25CF Critical — Section 7.2: Unlimited liability for Buyer</div>', delay: 150 },
+      { html: '<div class="term-text term-text--error">\u25CF High — Section 4.1: Broad IP assignment beyond deliverables</div>', delay: 120 },
+      { html: '<div class="term-text" style="color: var(--accent)">\u25CF Medium — Section 12.1: Governing law is Delaware (firm default: NY)</div>', delay: 120 },
+      { html: '<hr class="term-hr">', delay: 150 },
+      { html: '<div class="term-text--dim">Missing: Force majeure clause. Recommendation: Add standard FM provision.</div>', delay: 150 },
+      { html: '<div class="term-text--dim">Dispatching research-assistant for Section 7.2 liability analysis...</div>', delay: 200 },
+      { html: '<div class="term-text--success">Full report: /matters/acme/memos/contract-review.md</div>', delay: 0 },
+    ]);
+    // Navigate to the command file
+    setTimeout(() => {
+      if (window.app && window.app.explorer) {
+        window.app.explorer.selectPath('.claude/commands/review-contract.md');
+      }
+    }, 3500);
+  }
+
+  _cmdDraftMemo() {
+    this._animateSequence([
+      { html: '<div class="term-text--dim">Loading /draft-memo command...</div>', delay: 400 },
+      { html: '<div class="term-text">Topic: Whether unlimited liability clause is enforceable under NY law</div>', delay: 600 },
+      { html: '<div class="term-text--dim">Researching NY authority...</div>', delay: 500 },
+      { html: '<hr class="term-hr">', delay: 200 },
+      { html: '<div class="term-heading">MEMORANDUM</div>', delay: 300 },
+      { html: '<div class="term-text--dim">TO: [Partner] | FROM: [Associate] | RE: Acme — Liability Cap</div>', delay: 150 },
+      { html: '<hr class="term-hr">', delay: 150 },
+      { html: '<div class="term-text"><strong>Issue:</strong> Whether an unlimited liability provision is enforceable in a commercial services agreement under New York law.</div>', delay: 200 },
+      { html: '<div class="term-text"><strong>Rule:</strong> NY courts generally enforce liability provisions as written between sophisticated commercial parties. <em>Kalisch-Jarcho, Inc. v. City of New York</em>, 58 N.Y.2d 377 (1983).</div>', delay: 200 },
+      { html: '<div class="term-text"><strong>Analysis:</strong> While enforceable, unlimited liability exposes [Client] to disproportionate risk. Market standard is 12 months\' fees with carve-outs.</div>', delay: 200 },
+      { html: '<div class="term-text"><strong>Conclusion:</strong> Likely enforceable but strongly recommend negotiating a cap. Confidence: High.</div>', delay: 200 },
+      { html: '<hr class="term-hr">', delay: 150 },
+      { html: '<div class="term-text--success">Memo saved: /matters/acme/memos/liability-analysis.md</div>', delay: 0 },
+    ]);
+    // Navigate to the command file
+    setTimeout(() => {
+      if (window.app && window.app.explorer) {
+        window.app.explorer.selectPath('.claude/commands/draft-memo.md');
+      }
+    }, 3500);
   }
 
   // ── Utilities ─────────────────────────────────────────────

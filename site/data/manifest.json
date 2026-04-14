@@ -135,6 +135,16 @@
           "badge": "rules",
           "children": [
             {
+              "name": "what-are-rules.md",
+              "path": ".claude/rules/what-are-rules.md",
+              "type": "file",
+              "feature": "rules",
+              "badge": "rules",
+              "label": "What Are Rules?",
+              "description": "How contextual conventions work — rules load automatically based on the files you're editing.",
+              "contentFile": ".claude/rules/what-are-rules.md"
+            },
+            {
               "name": "contracts.md",
               "path": ".claude/rules/contracts.md",
               "type": "file",
@@ -163,6 +173,16 @@
           "badge": "commands",
           "children": [
             {
+              "name": "what-are-commands.md",
+              "path": ".claude/commands/what-are-commands.md",
+              "type": "file",
+              "feature": "commands",
+              "badge": "commands",
+              "label": "What Are Commands?",
+              "description": "Saved prompt templates invoked with a slash — turn complex workflows into a single keystroke.",
+              "contentFile": ".claude/commands/what-are-commands.md"
+            },
+            {
               "name": "review-contract.md",
               "path": ".claude/commands/review-contract.md",
               "type": "file",
@@ -190,6 +210,16 @@
           "type": "directory",
           "badge": "skill",
           "children": [
+            {
+              "name": "what-are-skills.md",
+              "path": ".claude/skills/what-are-skills.md",
+              "type": "file",
+              "feature": "skills",
+              "badge": "skill",
+              "label": "What Are Skills?",
+              "description": "Specialized knowledge Claude loads autonomously — jurisdiction rules, citation formats, case law references.",
+              "contentFile": ".claude/skills/what-are-skills.md"
+            },
             {
               "name": "jurisdiction-ny",
               "path": ".claude/skills/jurisdiction-ny",
@@ -246,6 +276,16 @@
           "badge": "hooks",
           "children": [
             {
+              "name": "what-are-hooks.md",
+              "path": ".claude/hooks/what-are-hooks.md",
+              "type": "file",
+              "feature": "hooks",
+              "badge": "hooks",
+              "label": "What Are Hooks?",
+              "description": "Automated guardrails — shell scripts that enforce confidentiality and citation standards on every file write.",
+              "contentFile": ".claude/hooks/what-are-hooks.md"
+            },
+            {
               "name": "confidentiality-guard.sh",
               "path": ".claude/hooks/confidentiality-guard.sh",
               "type": "file",
@@ -273,6 +313,16 @@
           "type": "directory",
           "badge": "agents",
           "children": [
+            {
+              "name": "what-are-agents.md",
+              "path": ".claude/agents/what-are-agents.md",
+              "type": "file",
+              "feature": "agents",
+              "badge": "agents",
+              "label": "What Are Agents?",
+              "description": "Specialized sub-agents that work in sequence — reviewer, researcher, memo drafter — like delegating to associates.",
+              "contentFile": ".claude/agents/what-are-agents.md"
+            },
             {
               "name": "contract-reviewer.md",
               "path": ".claude/agents/contract-reviewer.md",
@@ -311,6 +361,16 @@
           "type": "directory",
           "badge": "plugins",
           "children": [
+            {
+              "name": "what-are-plugins.md",
+              "path": ".claude/plugins/what-are-plugins.md",
+              "type": "file",
+              "feature": "plugins",
+              "badge": "plugins",
+              "label": "What Are Plugins?",
+              "description": "Package skills, agents, hooks, and commands into a single shareable extension for your entire firm.",
+              "contentFile": ".claude/plugins/what-are-plugins.md"
+            },
             {
               "name": "legal-ops-toolkit",
               "path": ".claude/plugins/legal-ops-toolkit",
