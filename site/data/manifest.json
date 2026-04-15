@@ -557,6 +557,26 @@
               "label": "Built-in Commands for Legal",
               "description": "Session management, diagnostics, and matter isolation commands with legal context.",
               "contentFile": "built-in/commands/commands-overview.md"
+            },
+            {
+              "name": "cheat-sheet.md",
+              "path": "built-in/commands/cheat-sheet.md",
+              "type": "file",
+              "feature": "built-in-commands",
+              "badge": "cli",
+              "label": "Cheat Sheet",
+              "description": "Quick reference for every keyboard shortcut, slash command, and permission mode. Bookmark this.",
+              "contentFile": "built-in/commands/cheat-sheet.md"
+            },
+            {
+              "name": "comprehensive-reference.md",
+              "path": "built-in/commands/comprehensive-reference.md",
+              "type": "file",
+              "feature": "built-in-commands",
+              "badge": "cli",
+              "label": "Comprehensive Command Reference",
+              "description": "Every slash command in Claude Code with full descriptions — the definitive reference.",
+              "contentFile": "built-in/commands/comprehensive-reference.md"
             }
           ]
         }

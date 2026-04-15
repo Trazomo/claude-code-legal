@@ -282,6 +282,46 @@
   }
 }
 
+/* Welcome branding footer */
+.welcome__branding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.welcome__brand-link {
+  display: flex;
+  align-items: center;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.welcome__brand-link:hover {
+  opacity: 1;
+}
+
+.welcome__brand-logo--trazomo {
+  height: 24px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.welcome__brand-logo--possiblaw {
+  height: 20px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.welcome__brand-divider {
+  color: var(--text-muted);
+  font-size: 18px;
+  opacity: 0.3;
+}
+
 /* Feature cards — clean list, not puffy grid */
 .feature-cards {
   display: grid;
