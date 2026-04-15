@@ -162,23 +162,38 @@ html, body {
 /* Sidebar branding */
 .sidebar__branding {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: var(--space-sm);
   padding: var(--space-md);
   border-top: 1px solid var(--border-subtle);
   flex-shrink: 0;
 }
 
+.sidebar__brand-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-default);
+  background: var(--bg-elevated);
+  transition: border-color 0.2s;
+}
+
+.sidebar__brand-pill:hover {
+  border-color: var(--border-strong);
+}
+
 .sidebar__brand-link {
   display: flex;
   align-items: center;
-  opacity: 0.5;
+  opacity: 0.6;
   transition: opacity 0.2s;
 }
 
 .sidebar__brand-link:hover {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .sidebar__brand-logo {
@@ -187,11 +202,17 @@ html, body {
 }
 
 .sidebar__brand-logo--trazomo {
-  height: 18px;
+  height: 16px;
+}
+
+.sidebar__brand-divider {
+  width: 1px;
+  height: 14px;
+  background: var(--border-default);
 }
 
 .sidebar__brand-logo--possiblaw {
-  height: 14px;
+  height: 13px;
 }
 
 /* ── Content Area ──────────────────────────────────────────── */
