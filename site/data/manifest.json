@@ -101,15 +101,45 @@
       "description": "Package jurisdiction skills, review agents, and confidentiality hooks into a shareable legal ops toolkit.",
       "order": 9
     },
+    "plan-mode": {
+      "title": "Plan Mode",
+      "description": "Align on approach before implementation — Claude outlines a plan, you approve before any files change.",
+      "order": 10
+    },
+    "permissions": {
+      "title": "Permissions & Edits",
+      "description": "Control what Claude can access, review diffs before they apply, and scope access per client matter.",
+      "order": 11
+    },
+    "subagents": {
+      "title": "Sub-agents",
+      "description": "Dispatch specialized Claude instances for focused tasks — like delegating to associates on a matter team.",
+      "order": 12
+    },
+    "resume": {
+      "title": "Resume & Continue",
+      "description": "Pick up where you left off — reopen sessions with full context for multi-day matter reviews.",
+      "order": 13
+    },
+    "context-window": {
+      "title": "Context Window",
+      "description": "Manage the 200k token window — compress, clear, and load documents strategically.",
+      "order": 14
+    },
+    "sdk": {
+      "title": "SDK & GitHub Action",
+      "description": "Automate legal review with the SDK for batch processing and GitHub Action for CI/CD review gates.",
+      "order": 15
+    },
     "bundled-skills": {
       "title": "Bundled Skills",
       "description": "Built-in Claude Code skills applied to legal workflows — batch clause updates, project setup, and more.",
-      "order": 10
+      "order": 16
     },
     "built-in-commands": {
       "title": "Built-in Commands",
       "description": "Slash commands baked into Claude Code — session management, diagnostics, and matter isolation.",
-      "order": 11
+      "order": 17
     }
   },
   "tree": [
@@ -389,6 +419,66 @@
               ]
             }
           ]
+        },
+        {
+          "name": "plan-mode.md",
+          "path": ".claude/plan-mode.md",
+          "type": "file",
+          "feature": "plan-mode",
+          "badge": "config",
+          "label": "Plan Mode",
+          "description": "Align on approach before implementation — outline a plan, review trade-offs, approve before any files change.",
+          "contentFile": ".claude/plan-mode.md"
+        },
+        {
+          "name": "permissions.md",
+          "path": ".claude/permissions.md",
+          "type": "file",
+          "feature": "permissions",
+          "badge": "config",
+          "label": "Permissions & Accepting Edits",
+          "description": "Control what Claude can access, review diffs before applying, scope file access per client matter.",
+          "contentFile": ".claude/permissions.md"
+        },
+        {
+          "name": "subagents.md",
+          "path": ".claude/subagents.md",
+          "type": "file",
+          "feature": "subagents",
+          "badge": "agents",
+          "label": "Sub-agents & Parallel Work",
+          "description": "Dispatch specialized Claude instances — like delegating to associates on a matter team.",
+          "contentFile": ".claude/subagents.md"
+        },
+        {
+          "name": "resume-continue.md",
+          "path": ".claude/resume-continue.md",
+          "type": "file",
+          "feature": "resume",
+          "badge": "config",
+          "label": "Resume & Continue",
+          "description": "Pick up where you left off — reopen sessions with full context for multi-day matter reviews.",
+          "contentFile": ".claude/resume-continue.md"
+        },
+        {
+          "name": "context-window.md",
+          "path": ".claude/context-window.md",
+          "type": "file",
+          "feature": "context-window",
+          "badge": "config",
+          "label": "Context Window & Tokens",
+          "description": "Manage the 200k token window — compress, clear, and load documents strategically.",
+          "contentFile": ".claude/context-window.md"
+        },
+        {
+          "name": "sdk-and-github-action.md",
+          "path": ".claude/sdk-and-github-action.md",
+          "type": "file",
+          "feature": "sdk",
+          "badge": "code",
+          "label": "SDK & GitHub Action",
+          "description": "Automate legal review — SDK for batch processing, GitHub Action for CI/CD review gates.",
+          "contentFile": ".claude/sdk-and-github-action.md"
         }
       ]
     },
