@@ -42,6 +42,49 @@ class ContentLoader {
         <p class="welcome__subtitle welcome__subtitle--secondary">
           Open a file. Read the config. Apply it to your practice.
         </p>
+
+        <div class="welcome__commands">
+          <div class="welcome__commands-header">
+            <span class="welcome__commands-icon">&gt;_</span>
+            Try these in the terminal panel <span class="welcome__commands-arrow">&rarr;</span>
+          </div>
+          <div class="welcome__commands-grid">
+            <div class="welcome__cmd" data-cmd="/review-contract">
+              <span class="welcome__cmd-name">/review-contract</span>
+              <span class="welcome__cmd-desc">Run a contract review with risk flags</span>
+            </div>
+            <div class="welcome__cmd" data-cmd="/draft-memo">
+              <span class="welcome__cmd-name">/draft-memo</span>
+              <span class="welcome__cmd-desc">Generate an IRAC legal memo</span>
+            </div>
+            <div class="welcome__cmd" data-cmd="/init">
+              <span class="welcome__cmd-name">/init</span>
+              <span class="welcome__cmd-desc">Watch a legal CLAUDE.md get created</span>
+            </div>
+            <div class="welcome__cmd" data-cmd="/doctor">
+              <span class="welcome__cmd-name">/doctor</span>
+              <span class="welcome__cmd-desc">Check MCP server connections</span>
+            </div>
+            <div class="welcome__cmd" data-cmd="/diff">
+              <span class="welcome__cmd-name">/diff</span>
+              <span class="welcome__cmd-desc">See an indemnification clause edit</span>
+            </div>
+            <div class="welcome__cmd" data-cmd="/status">
+              <span class="welcome__cmd-name">/status</span>
+              <span class="welcome__cmd-desc">View project context and jurisdiction</span>
+            </div>
+            <div class="welcome__cmd" data-cmd="/memory">
+              <span class="welcome__cmd-name">/memory</span>
+              <span class="welcome__cmd-desc">View firm conventions and preferences</span>
+            </div>
+            <div class="welcome__cmd" data-cmd="/help">
+              <span class="welcome__cmd-name">/help</span>
+              <span class="welcome__cmd-desc">List all available commands</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="welcome__section-label">Explore Features</div>
         <div class="feature-cards">${cardsHtml}</div>
       </div>`;
 
@@ -50,6 +93,23 @@ class ContentLoader {
       card.addEventListener('click', () => {
         const featureId = card.getAttribute('data-feature');
         this._navigateToFeature(featureId);
+      });
+    });
+
+    // Attach click handlers to command cards — execute in terminal
+    content.querySelectorAll('.welcome__cmd').forEach(cmd => {
+      cmd.addEventListener('click', () => {
+        const command = cmd.getAttribute('data-cmd');
+        if (command && window.app && window.app.terminal) {
+          // On mobile, open the terminal panel first
+          const terminalPanel = document.getElementById('terminal-panel');
+          if (terminalPanel && window.matchMedia('(max-width: 768px)').matches) {
+            terminalPanel.classList.add('mobile-open');
+            terminalPanel.style.display = 'flex';
+          }
+          window.app.terminal.input.value = command;
+          window.app.terminal._execute(command);
+        }
       });
     });
   }

@@ -197,6 +197,91 @@
   color: var(--text-muted);
 }
 
+/* Welcome commands section */
+.welcome__commands {
+  margin-bottom: var(--space-xl);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.welcome__commands-header {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-elevated);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.welcome__commands-icon {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.welcome__commands-arrow {
+  opacity: 0.5;
+  animation: pulse-arrow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-arrow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+.welcome__commands-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border-subtle);
+}
+
+.welcome__cmd {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-surface);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.welcome__cmd:hover {
+  background: var(--bg-elevated);
+}
+
+.welcome__cmd-name {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+
+.welcome__cmd-desc {
+  display: block;
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.welcome__section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-sm);
+}
+
+@media (max-width: 768px) {
+  .welcome__commands-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Feature cards — clean list, not puffy grid */
 .feature-cards {
   display: grid;
