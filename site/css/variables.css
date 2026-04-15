@@ -19,17 +19,17 @@
   --border-default: #2a4a6a;
   --border-strong: #3a6080;
 
-  /* Accent — mint */
-  --accent: #4dd4b4;
-  --accent-hover: #66e0c4;
-  --accent-muted: rgba(77, 212, 180, 0.10);
+  /* Accent — PossibLaw pink */
+  --accent: #f57dc0;
+  --accent-hover: #f99ad0;
+  --accent-muted: rgba(245, 125, 192, 0.10);
 
   /* Badge colors — muted, complementary to navy/mint */
   --badge-memory: #6ea0b0;
   --badge-commands: #8e82ad;
   --badge-config: #7a8a96;
   --badge-mcp: #6e9468;
-  --badge-skill: #4dd4b4;
+  --badge-skill: #5e918a;
   --badge-agents: #b8965e;
   --badge-plugins: #a8a048;
   --badge-marketplace: #7a8b5e;
