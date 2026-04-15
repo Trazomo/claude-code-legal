@@ -87,15 +87,6 @@ class ContentLoader {
         <div class="welcome__section-label">Explore Features</div>
         <div class="feature-cards">${cardsHtml}</div>
 
-        <div class="welcome__branding">
-          <a href="https://trazomo.com" target="_blank" rel="noopener noreferrer" class="welcome__brand-link">
-            <img src="brand/trazomo-logo.svg" alt="Trazomo" class="welcome__brand-logo welcome__brand-logo--trazomo">
-          </a>
-          <span class="welcome__brand-divider">|</span>
-          <a href="https://www.possiblaw.com" target="_blank" rel="noopener noreferrer" class="welcome__brand-link">
-            <img src="brand/possiblaw-horizontal.png" alt="PossibLaw" class="welcome__brand-logo welcome__brand-logo--possiblaw">
-          </a>
-        </div>
       </div>`;
 
     // Attach click handlers to feature cards

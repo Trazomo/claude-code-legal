@@ -159,6 +159,41 @@ html, body {
   background: var(--border-strong);
 }
 
+/* Sidebar branding */
+.sidebar__branding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border-top: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.sidebar__brand-link {
+  display: flex;
+  align-items: center;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.sidebar__brand-link:hover {
+  opacity: 0.9;
+}
+
+.sidebar__brand-logo {
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.sidebar__brand-logo--trazomo {
+  height: 18px;
+}
+
+.sidebar__brand-logo--possiblaw {
+  height: 14px;
+}
+
 /* ── Content Area ──────────────────────────────────────────── */
 
 .content-area {
